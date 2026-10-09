@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/actividades', [ActivityController::class, 'index'])->name('actividades.index');
-Route::get('/docentes', [DocentesController::class, 'index'])->name('docentes.index');
+Route::get('/docentes', [DocentesController::class, 'index'])->middleware('auth')->name('docentes.index');
 Route::get('/comunicados/{slug}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/adjuntos/{id}/descargar', [PostController::class, 'downloadAttachment'])->name('attachments.download');
 
